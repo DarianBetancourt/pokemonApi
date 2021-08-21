@@ -1,0 +1,33 @@
+body{
+    background-image: url(images/universo-bg.jpg);
+}
+
+.back-gradient{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(138,91,255,0.8715861344537815) 0%, rgba(0,212,255,1) 100%);
+}
+#top-menu{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(138,91,255,0.8715861344537815) 0%, rgba(0,212,255,1) 100%);
+}
+
+#container{
+    background-color: rgba(236, 238, 241, 0.5);
+    /* opacity: 0.5; */
+}
+
+.card{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(74, 7, 243) 0%, rgba(0, 213, 255, 0.774) 100%);
+/*     
+background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(138,91,255,0.09567577030812324) 0%, rgba(60,4,191,0.5270483193277311) 100%); */
+}
+
+.card:hover{
+    opacity: 0.5;
+}
+.remove-bg{
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+}
