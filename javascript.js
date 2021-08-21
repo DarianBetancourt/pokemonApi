@@ -1,29 +1,10 @@
-/* const URL_TO_FETCH = 'https://pokeapi.co/api/v2/pokemon';
-fetch(URL_TO_FETCH, {
-  method: 'get' // opcional
-})
-.then(function(response) {
-  return response.json;
-})
-.catch(function(err) { 
-  console.error(err);
-}); */
-
-
 let container=document.getElementById("containerPokemons");
 let totalPokemons=document.getElementById("totalPokemons");
 let body=document.body;
 
 
-/*function eventoMultiple(){
-let cards=document.querySelectorAll(".card"); 
-cards.forEach(function(card) {
-    card.addEventListener("click", mensaje);
-}); }
-
-*/
 listPokemon();
-//eventoMultiple();
+
 
 
 body.addEventListener("click", eventoMultiple );
@@ -81,3 +62,14 @@ function listPokemon(){
         console.error(err);
     });
 }
+
+FB.login(function(response) {
+    if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    } else {
+     console.log('User cancelled login or did not fully authorize.');
+    }
+});
