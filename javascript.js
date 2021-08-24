@@ -46,10 +46,10 @@ function getPokemon(url) {
 		.then(data => {
             datos=data;
             container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1 flip" style="width: 12rem;">
-            /* <a href="#"> */
+            
                 <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top flip-1" alt="${datos.name}" style="width:100px;">
                 <img id="img-${datos.name}" src="${datos.sprites.back_default}" class="card-img-top flip-2" alt="${datos.name}" style="width:100px;">
-            /* </a> */
+            
             <div class="card-body">
             <h5 class="card-title">${datos.name}</h5>
             
