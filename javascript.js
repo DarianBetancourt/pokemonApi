@@ -17,7 +17,7 @@ function eventoMultiple(){
         card.addEventListener("click", mensaje);
         card.addEventListener("mouseover",()=>{
             let indice = arrayPokemons.findIndex(pokemon => pokemon.name === card.id);
-            girarImg(arrayPokemons[indice]);
+            /* girarImg(arrayPokemons[indice]); */
         })
     }); 
 }
@@ -26,11 +26,11 @@ function girarImg(pokemon){
     let id="img-"+pokemon.name;
     let img=document.getElementById(id);
     setTimeout(function(){
-        img.src=pokemon.sprites.front_default;    
-    },1000);
-    setTimeout(function(){
         img.src=pokemon.sprites.back_default;    
-    },1000);
+    },500);
+    setTimeout(function(){
+        img.src=pokemon.sprites.front_default;    
+    },500);
     
 }
 
@@ -45,10 +45,11 @@ function getPokemon(url) {
 		.then(response => response.json())
 		.then(data => {
             datos=data;
-            container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1" style="width: 12rem;">
-            <a href="#">
-                <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
-            </a>
+            container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1 flip" style="width: 12rem;">
+            /* <a href="#"> */
+                <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top flip-1" alt="${datos.name}" style="width:100px;">
+                <img id="img-${datos.name}" src="${datos.sprites.back_default}" class="card-img-top flip-2" alt="${datos.name}" style="width:100px;">
+            /* </a> */
             <div class="card-body">
             <h5 class="card-title">${datos.name}</h5>
             
