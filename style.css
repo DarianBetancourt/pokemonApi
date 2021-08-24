@@ -1,7 +1,17 @@
 body{
     background-image: url(images/universo-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size:    cover;
+    background-attachment: fixed;
+    
 }
 
+.f-pokemon{
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em blue;
+}
 .back-gradient{
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(138,91,255,0.8715861344537815) 0%, rgba(0,212,255,1) 100%);
@@ -13,21 +23,72 @@ body{
 
 #container{
     background-color: rgba(236, 238, 241, 0.5);
-    /* opacity: 0.5; */
+    margin-bottom: 20px;
 }
+    #totalPokemons{
+        color:  lightblue;
+    }
 
-.card{
-    background: rgb(0,0,0);
-    background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(74, 7, 243) 0%, rgba(0, 213, 255, 0.774) 100%);
-/*     
-background: rgb(0,0,0);
-background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(138,91,255,0.09567577030812324) 0%, rgba(60,4,191,0.5270483193277311) 100%); */
-}
 
-.card:hover{
-    opacity: 0.5;
-}
+    .card{
+        font-family: 'Permanent Marker', cursive;
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(74, 7, 243) 0%, rgba(0, 213, 255, 0.774) 100%);
+
+    }
+
+    .card:hover{
+        /* opacity: 0.5; */
+    }
 .remove-bg{
     filter: brightness(1.1);
     mix-blend-mode: multiply;
 }
+.card-title{
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+.card-img-top{
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+.flip{
+    transition: all 1s ease;
+    transform: perspective(600px);
+    transform-origin: 100% 50%;
+    transform-style: preserve-3d;
+    }
+    .flip:hover{
+    transform: perspective(600px) rotateY(-180deg) translateX(100%);
+    }
+    .flip .flip-1{
+    /* position: absolute; */
+    backface-visibility: hidden;
+    }
+    .flip .flip-2{
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    }
+
+    #layer_2{
+        width:300px; 
+        position: fixed; 
+        top: 10%; 
+        right: 50px;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        #layer_2 {
+          display: none;
+        }
+      }
+   
