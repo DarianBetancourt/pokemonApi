@@ -7,7 +7,7 @@ listPokemon();
 
 
 
-/* body.addEventListener("click", eventoMultiple ); */
+body.addEventListener("click", eventoMultiple );
 
 
 
@@ -16,11 +16,23 @@ function eventoMultiple(){
     cards.forEach(function(card) {
         card.addEventListener("click", mensaje);
         card.addEventListener("mouseover",()=>{
-            
+            let indice = frutas.indexOf(card.id);
+            girarImg(arrayPokemons[indice]);
         })
     }); 
 }
 
+funtion girarImg(pokemon){
+    let id="img-"+pokemon.name;
+    let img=document.getElementById(id);
+    setTimeout(function(){
+        img.src=pokemon.sprites.front_default;    
+    },1000);
+    setTimeout(function(){
+        img.src=pokemon.sprites.back_default;    
+    },1000);
+    
+}
 
 
 function mensaje(){
@@ -33,9 +45,9 @@ function getPokemon(url) {
 		.then(response => response.json())
 		.then(data => {
         datos=data;
-        container.innerHTML +=`<div class="card text-center m-1" style="width: 12rem;">
+        container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1" style="width: 12rem;">
         <a href="#">
-            <img id="${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
+            <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
         </a>
         <div class="card-body">
           <h5 class="card-title">${datos.name}</h5>
@@ -61,8 +73,7 @@ function listPokemon(){
                 urlPokemon=list.results[i].url;
                 arrayPokemons[i]=getPokemon(urlPokemon);
             }
-            eventoMultiple();
-            
+              
 	    })
     .catch(function(err) { 
         console.error(err);
