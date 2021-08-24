@@ -15,6 +15,9 @@ function eventoMultiple(){
     let cards=document.querySelectorAll(".card"); 
     cards.forEach(function(card) {
         card.addEventListener("click", mensaje);
+        card.addEventListener("mouseover",()=>{
+            console.log("mouseover");
+        })
     }); 
 }
 
