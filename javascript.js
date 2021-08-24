@@ -44,21 +44,21 @@ function getPokemon(url) {
     fetch(url)
 		.then(response => response.json())
 		.then(data => {
-        datos=data;
-        container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1" style="width: 12rem;">
-        <a href="#">
-            <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">${datos.name}</h5>
-         
-        </div>
-        </div>`;
-        return datos;
-	})
-    .catch(function(err) { 
-        console.error(err);
-    });
+            datos=data;
+            container.innerHTML +=`<div id="${datos.name}" class="card text-center m-1" style="width: 12rem;">
+            <a href="#">
+                <img id="img-${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
+            </a>
+            <div class="card-body">
+            <h5 class="card-title">${datos.name}</h5>
+            
+            </div>
+            </div>`;
+            arrayPokemons[arrayPokemons.length]=datos;
+        })
+        .catch(function(err) { 
+            console.error(err);
+        });
 }
 
 function listPokemon(){
@@ -71,7 +71,7 @@ function listPokemon(){
             totalPokemons.innerHTML +=`${list.count}`;
             for(i=0;i<20;i++){
                 urlPokemon=list.results[i].url;
-                arrayPokemons[i]=getPokemon(urlPokemon);
+                getPokemon(urlPokemon);
             }
               
 	    })
