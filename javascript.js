@@ -1,13 +1,13 @@
 let container=document.getElementById("containerPokemons");
 let totalPokemons=document.getElementById("totalPokemons");
 let body=document.body;
-
+let arrayPokemons=[];
 
 listPokemon();
 
 
 
-body.addEventListener("click", eventoMultiple );
+/* body.addEventListener("click", eventoMultiple ); */
 
 
 
@@ -16,7 +16,7 @@ function eventoMultiple(){
     cards.forEach(function(card) {
         card.addEventListener("click", mensaje);
         card.addEventListener("mouseover",()=>{
-            console.log("mouseover");
+            
         })
     }); 
 }
@@ -35,13 +35,14 @@ function getPokemon(url) {
         datos=data;
         container.innerHTML +=`<div class="card text-center m-1" style="width: 12rem;">
         <a href="#">
-            <img src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
+            <img id="${datos.name}" src="${datos.sprites.front_default}" class="card-img-top" alt="${datos.name}" style="width:100px;">
         </a>
         <div class="card-body">
           <h5 class="card-title">${datos.name}</h5>
          
         </div>
         </div>`;
+        return datos;
 	})
     .catch(function(err) { 
         console.error(err);
@@ -58,8 +59,10 @@ function listPokemon(){
             totalPokemons.innerHTML +=`${list.count}`;
             for(i=0;i<20;i++){
                 urlPokemon=list.results[i].url;
-                getPokemon(urlPokemon);
+                arrayPokemons[i]=getPokemon(urlPokemon);
             }
+            eventoMultiple();
+            
 	    })
     .catch(function(err) { 
         console.error(err);
