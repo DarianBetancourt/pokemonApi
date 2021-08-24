@@ -16,7 +16,7 @@ function eventoMultiple(){
     cards.forEach(function(card) {
         card.addEventListener("click", mensaje);
         card.addEventListener("mouseover",()=>{
-            let indice = arrayPokemons.indexOf(card.id);
+            let indice = arrayPokemons.findIndex(pokemon => pokemon.name === card.id);
             girarImg(arrayPokemons[indice]);
         })
     }); 
