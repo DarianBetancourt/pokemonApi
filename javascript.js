@@ -22,7 +22,7 @@ function eventoMultiple(){
     }); 
 }
 
-funtion girarImg(pokemon){
+function girarImg(pokemon){
     let id="img-"+pokemon.name;
     let img=document.getElementById(id);
     setTimeout(function(){
